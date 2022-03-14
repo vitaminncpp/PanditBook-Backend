@@ -8,7 +8,7 @@
     "data": {
         "users": [
             {
-                "_id": 454,
+                "_id": "String",
                 "name": "Aman",
                 "email": "abc@sbi.com",
                 "type": 0,
@@ -21,8 +21,8 @@
         ],
         "posts": [
             {
-                "_id": 455,
-                "uid": 12155,
+                "_id": "String",
+                "uid": "String",
                 "title": "title",
                 "content": "content",
                 "date": "date",
@@ -33,9 +33,9 @@
         ],
         "directRequests": [
             {
-                "_id": 465,
+                "_id": "String",
                 "uid": "uid",
-                "panditRequested": 655465,
+                "panditRequested": "String",
                 "title": "title",
                 "content": "content",
                 "date": "date",
@@ -50,19 +50,19 @@
         ],
         "proposals": [
             {
-                "_id": 465,
-                "postID": 4444,
-                "panditID": 454,
+                "_id": "String",
+                "postID": "String",
+                "panditID": "String",
                 "content": "content",
                 "accepted": false,
-                "rejected": false,
+                "rejected": false,	
                 "seen": false,
                 "cancelled": false
             }
         ],
         "mappings": [
             {
-               "_id": "id",
+                "_id": "id",
                 "email": "email",
                 "uid": "uid"
             }

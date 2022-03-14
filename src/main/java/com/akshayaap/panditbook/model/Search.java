@@ -11,9 +11,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Getter
 @Setter
 @ToString
-public class SearchUser {
-    @Field("search")
-    private String search;
+public class Search {
+    @Field("searchBy")
+    private String searchBy;
+    @Field("searchValue")
+    private String searchValue;
     @Field("pageno")
     private int pageno;
     @Field("pageSize")
@@ -23,11 +25,12 @@ public class SearchUser {
     @Field("sortOrder")
     private String sortOrder;
 
-    public SearchUser() {
+    public Search() {
     }
 
-    public SearchUser(String search, int pageno, int pageSize, String sortBy, String sortOrder) {
-        this.search = search;
+    public Search(String searchBy,String searchValue, int pageno, int pageSize, String sortBy, String sortOrder) {
+        this.searchBy = searchBy;
+        this.searchValue = searchValue;
         this.pageno = pageno;
         this.pageSize = pageSize;
         this.sortBy = sortBy;
@@ -35,7 +38,7 @@ public class SearchUser {
     }
 
     public String getSearch() {
-        return search;
+        return searchBy;
     }
 
     public int getPageno() {
@@ -55,7 +58,7 @@ public class SearchUser {
     }
 
     public void setSearch(String search) {
-        this.search = search;
+        this.searchBy = search;
     }
 
     public void setPageno(int pageno) {

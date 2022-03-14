@@ -1,6 +1,6 @@
 package com.akshayaap.panditbook.service;
 
-import com.akshayaap.panditbook.model.SearchUser;
+import com.akshayaap.panditbook.model.Search;
 import com.akshayaap.panditbook.model.User;
 import com.akshayaap.panditbook.repository.UserRepository;
 import com.akshayaap.panditbook.util.Log;
@@ -32,7 +32,7 @@ public class UserService {
         return repository.findById(id).get();
     }
 
-    public Map<String, Object> getUserPage(SearchUser search) {
+    public Map<String, Object> getUserPage(Search search) {
 
         HashMap<String, Object> response = new HashMap<>();
         Sort sort = Sort.by(search.getSortBy(), search.getSortOrder());

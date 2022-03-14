@@ -1,6 +1,6 @@
 package com.akshayaap.panditbook.controller;
 
-import com.akshayaap.panditbook.model.SearchUser;
+import com.akshayaap.panditbook.model.Search;
 import com.akshayaap.panditbook.model.User;
 import com.akshayaap.panditbook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class UserController {
 
     @GetMapping("/find")
     @ResponseBody
-    public Map<String, Object> getUserPage(@RequestBody SearchUser search) {
+    public Map<String, Object> getUserPage(@RequestBody Search search) {
         return service.getUserPage(search);
     }
 
