@@ -1,0 +1,57 @@
+{
+    "users": [
+        {
+            "name": "Aman",
+            "email": "abc@sbi.com",
+            "uType": 1,
+            "pHash": "rdtFVYF6TUFkfvYTFBgukFKUFJYfVHGFGJ",
+            "bDate": "01/01/1990",
+            "address": "Kolkata",
+            "phone": "9876543210",
+            "description": "description"
+        }
+    ],
+    "posts": [
+        {
+            "id": 455,
+            "uid": 12155,
+            "title": "title",
+            "description": "description",
+            "date": "date",
+            "location": "location",
+            "price":4545.5,
+            "type": 445
+        }
+    ],
+    "directRequests": [
+        {
+            "id": 465,
+            "uid": 4552,
+            "panditRequested": 655465,
+            "title": "title",
+            "description": "description",
+            "date": "date",
+            "location": "location",
+            "price": 45.65,
+            "type": 4 ,
+            "accepted": false,
+            "seen": false,
+            "rejected": false
+        }
+    ],
+    "proposals": [
+        {
+            "id": 465,
+            "postID": 4444,
+            "panditID": 454,
+            "description": "description"
+        }
+    ],
+    "mappings": [
+        {
+            "id": 465,
+            "email": "abc@xyz.net",
+            "uid": 445
+        }
+    ]
+}

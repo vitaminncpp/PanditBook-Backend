@@ -1,0 +1,71 @@
+{
+    "database": "PanditBook",
+    "collections": [
+        "users",
+        "posts",
+        "directRequests"
+    ],
+    "data": {
+        "users": [
+            {
+                "_id": 454,
+                "name": "Aman",
+                "email": "abc@sbi.com",
+                "type": 0,
+                "pHash": "rdtFVYF6TUFkfvYTFBgukFKUFJYfVHGFGJ",
+                "bDate": "01/01/1990",
+                "Address": "Kolkata",
+                "phone": "9876543210",
+                "Description": "I am a good"
+            }
+        ],
+        "posts": [
+            {
+                "_id": 455,
+                "uid": 12155,
+                "title": "title",
+                "content": "content",
+                "date": "date",
+                "location": "location",
+                "price": "price",
+                "type": 77
+            }
+        ],
+        "directRequests": [
+            {
+                "_id": 465,
+                "uid": "uid",
+                "panditRequested": 655465,
+                "title": "title",
+                "content": "content",
+                "date": "date",
+                "location": "location",
+                "price": "price",
+                "type": 445,
+                "accepted": false,
+                "seen": false,
+                "rejected": false,
+                "cancelled": false
+            }
+        ],
+        "proposals": [
+            {
+                "_id": 465,
+                "postID": 4444,
+                "panditID": 454,
+                "content": "content",
+                "accepted": false,
+                "rejected": false,
+                "seen": false,
+                "cancelled": false
+            }
+        ],
+        "mappings": [
+            {
+               "_id": "id",
+                "email": "email",
+                "uid": "uid"
+            }
+        ]
+    }
+}
