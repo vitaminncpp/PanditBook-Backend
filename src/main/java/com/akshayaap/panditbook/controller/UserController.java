@@ -16,12 +16,6 @@ public class UserController {
     UserService service;
 
 
-    @GetMapping("/greet")
-    @ResponseBody
-    public String greet(@RequestParam String name) {
-        return "Hello " + name;
-    }
-
     @PostMapping("/register")
     @ResponseBody
     public User register(@RequestBody User user) {

@@ -1,16 +1,20 @@
 package com.akshayaap.panditbook.service;
 
+import com.akshayaap.panditbook.model.Post;
 import com.akshayaap.panditbook.model.Search;
 import com.akshayaap.panditbook.model.User;
 import com.akshayaap.panditbook.repository.UserRepository;
 import com.akshayaap.panditbook.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 @Service
 public class UserService {
@@ -47,27 +51,45 @@ public class UserService {
 
     public User login(User login) {
 
-        Example<User> example = Example.of(login);
-        List<User> users = repository.findAll(example);
 
-        Log.log(users.toString(),Log.TEXT_RED);
-        if (users.size() > 0) {
-            return users.get(0);
+        User user1;
+        try{
+            user1 = repository.findOneByEmail(login.getEmail(),login.getpHash()).get();
+            return user1;
+        }
+        catch(NoSuchElementException ex){
+            return new User();
         }
 
-        return new User();
     }
 
     public User update(User user) {
-        return repository.save(user);
+        Query query = new Query();
+        query.addCriteria(Criteria.where("uid").is(user.getId()));
+        query.addCriteria(Criteria.where("pHash").is(user.getpHash()));
+        User user1;
+        try{
+            user1 = repository.findOne(user.getId(),user.getpHash()).get();
+            return repository.save(user);
+        }
+        catch(NoSuchElementException ex){
+            return new User();
+        }
     }
 
     public String delete(User user) {
-        repository.delete(user);
-        if (repository.findById(user.getId()).isPresent()) {
-            return "User not deleted";
+        Query query = new Query();
+        query.addCriteria(Criteria.where("uid").is(user.getId()));
+        query.addCriteria(Criteria.where("pHash").is(user.getpHash()));
+        User user1;
+        try{
+            user1 = repository.findOne(user.getId(),user.getpHash()).get();
+            repository.delete(user);
+            return "success";
         }
-        return "User deleted";
+        catch(NoSuchElementException ex){
+            return "failure";
+        }
     }
 
 }
