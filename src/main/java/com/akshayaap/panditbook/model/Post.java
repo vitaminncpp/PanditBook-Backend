@@ -14,13 +14,13 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @ToString
-@Document(collation = "posts")
+@Document(collection = "posts")
 public class Post {
 
     @Id
     @Indexed(unique = true)
     @Field("_id")
-    private String id;
+    private String _id;
     @Field("uid")
     private String uid;
     @Field("title")
@@ -35,6 +35,19 @@ public class Post {
     private String location;
     @Field("price")
     private Double price;
+
+    public Post(String id,String uid, String title, String content, String date, String location, Double price, Integer type) {
+        this._id=id;
+        this.uid = uid;
+        this.title = title;
+        this.content=content;
+        this.date = date;
+
+        this.location = location;
+        this.price = price;
+        this.type = type;
+    }
+
 
     public Post(String uid, String title, String content, String date, String location, Double price, Integer type) {
 
@@ -109,11 +122,11 @@ public class Post {
 
 
     public String getId() {
-        return id;
+        return _id;
     }
 
 
-    public void setId (String id) {
-        this.id = id;
+    public void setId (String _id) {
+        this._id = _id;
     }
 }

@@ -25,15 +25,15 @@ public class PostController {
     }
 
 
-    @PostMapping("posts/{id}")
+    @PostMapping("/getpost")
     @ResponseBody
-    public Post getPost(@RequestBody @NotNull User user, @PathVariable("id") @NotNull String id) {
-        return service.getPost(user,id);
+    public Post getPost(@RequestBody @NotNull PostRequest request) {
+        return service.getPost(request.getUser(),request.getPost().getId());
     }
 
     @PostMapping("/post/edit/")
     @ResponseBody
-    public Post getPost(@RequestBody @NotNull PostRequest request) {
+    public Post updatePost(@RequestBody @NotNull PostRequest request) {
         return service.updatePost(request.getUser(),request.getPost());
     }
 

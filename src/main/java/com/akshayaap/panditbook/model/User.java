@@ -26,7 +26,7 @@ public class User {
     @Id
     @Indexed(unique = true)
     @Field("_id")
-    private String id;
+    private String _id;
     @Field("name")
     private String name;
     @Field("email")
@@ -46,6 +46,18 @@ public class User {
     private String description;
 
     public User(String email, String pHash, String name, int uType, String phone, String address, String bDate, String description) {
+        this.email = email;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.uType = uType;
+        this.pHash = pHash;
+        this.bDate = bDate;
+        this.description = description;
+    }
+
+    public User(String id,String email, String pHash, String name, int uType, String phone, String address, String bDate, String description) {
+        this._id=id;
         this.email = email;
         this.name = name;
         this.address = address;
@@ -128,10 +140,10 @@ public class User {
     }
 
     public String getId() {
-        return id;
+        return _id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this._id = id;
     }
 }
