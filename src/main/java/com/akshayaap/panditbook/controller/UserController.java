@@ -19,6 +19,7 @@ public class UserController {
     @PostMapping("/register")
     @ResponseBody
     public User register(@RequestBody User user) {
+        System.out.println(user);
         return service.insert(user);
     }
 
@@ -26,6 +27,12 @@ public class UserController {
     @ResponseBody
     public List<User> findAll() {
         return service.findAll();
+    }
+
+    @PostMapping("/findallpandits")
+    @ResponseBody
+    public Map<String, Object> findPandits(@RequestBody Search search) {
+        return service.findPandits(search);
     }
 
     @GetMapping("/find")
@@ -38,7 +45,9 @@ public class UserController {
     @PostMapping("/login")
     @ResponseBody
     public User login(@RequestBody User login) {
-        return service.login(login);
+        User user=service.login(login);
+        System.out.println(user);
+        return user;
     }
 
 

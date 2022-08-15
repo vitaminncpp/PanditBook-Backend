@@ -12,7 +12,7 @@
                 "name": "Aman",
                 "email": "abc@sbi.com",
                 "type": 0,
-                "pHash": "rdtFVYF6TUFkfvYTFBgukFKUFJYfVHGFGJ",
+                "pHash": "rdtH",
                 "bDate": "01/01/1990",
                 "Address": "Kolkata",
                 "phone": "9876543210",
@@ -55,7 +55,7 @@
                 "panditID": "String",
                 "content": "content",
                 "accepted": false,
-                "rejected": false,	
+                "rejected": false,
                 "seen": false,
                 "cancelled": false
             }

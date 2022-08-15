@@ -62,7 +62,7 @@ public class Search {
     }
 
     public void setPageno(int pageno) {
-        this.pageno = pageno;
+            this.pageno = pageno;
     }
 
     public void setPageSize(int pageSize) {

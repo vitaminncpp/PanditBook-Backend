@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-@Data
+
 @Getter
 @Setter
 @Document(collection = "users")

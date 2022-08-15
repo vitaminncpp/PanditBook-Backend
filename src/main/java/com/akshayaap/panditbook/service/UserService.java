@@ -83,5 +83,17 @@ public class UserService {
         }
     }
 
+    public Map <String,Object> findPandits(Search search) {
+        Map<String,Object> response = new HashMap<String,Object>();
+        Pageable pageable =PageRequest.of(search.getPageno(),search.getPageSize(),Sort.unsorted());
+        Page<User> userPage = repository.findPandits(1,pageable);
+        System.out.println(search) ;
+        response.put("data",userPage.getContent());
+        response.put("total",userPage.getTotalElements());
+        response.put("pages",userPage.getTotalPages());
+        response.put("current",userPage.getNumber());
+        System.out.println(userPage.getContent());
+        return response;
+    }
 }
 
