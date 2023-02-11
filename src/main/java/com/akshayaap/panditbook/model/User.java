@@ -1,9 +1,5 @@
 package com.akshayaap.panditbook.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -12,10 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 
 
-@Getter
-@Setter
 @Document(collection = "users")
-@ToString
 public class User {
 
     public static final int USER_PANDIT = 0;
@@ -56,8 +49,8 @@ public class User {
         this.description = description;
     }
 
-    public User(String id,String email, String pHash, String name, int uType, String phone, String address, String bDate, String description) {
-        this._id=id;
+    public User(String id, String email, String pHash, String name, int uType, String phone, String address, String bDate, String description) {
+        this._id = id;
         this.email = email;
         this.name = name;
         this.address = address;
@@ -74,10 +67,6 @@ public class User {
     public User(String email, String pHash) {
         this.email = email;
         this.pHash = pHash;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getName() {
@@ -103,6 +92,7 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
     public int getuType() {
         return uType;
     }
@@ -139,11 +129,30 @@ public class User {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getId() {
         return _id;
     }
 
     public void setId(String id) {
         this._id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"_id\":\"" + _id + '\"' +
+                ", \"name\":\"" + name + '\"' +
+                ", \"email\":\"" + email + '\"' +
+                ", \"address\":\"" + address + '\"' +
+                ", \"phone\":\"" + phone + '\"' +
+                ", \"uType\":\"" + uType + '\"' +
+                ", \"pHash\":\"" + pHash + '\"' +
+                ", \"bDate\":\"" + bDate + '\"' +
+                ", \"description\":\"" + description + '\"' +
+                '}';
     }
 }

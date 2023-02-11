@@ -16,8 +16,8 @@ public class Search {
     private String searchBy;
     @Field("searchValue")
     private String searchValue;
-    @Field("pageno")
-    private int pageno;
+    @Field("pageNo")
+    private int pageNo;
     @Field("pageSize")
     private int pageSize;
     @Field("sortBy")
@@ -28,10 +28,10 @@ public class Search {
     public Search() {
     }
 
-    public Search(String searchBy,String searchValue, int pageno, int pageSize, String sortBy, String sortOrder) {
+    public Search(String searchBy, String searchValue, int pageNo, int pageSize, String sortBy, String sortOrder) {
         this.searchBy = searchBy;
         this.searchValue = searchValue;
-        this.pageno = pageno;
+        this.pageNo = pageNo;
         this.pageSize = pageSize;
         this.sortBy = sortBy;
         this.sortOrder = sortOrder;
@@ -41,36 +41,36 @@ public class Search {
         return searchBy;
     }
 
-    public int getPageno() {
-        return pageno;
+    public void setSearch(String search) {
+        this.searchBy = search;
+    }
+
+    public int getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(int pageNo) {
+        this.pageNo = pageNo;
     }
 
     public int getPageSize() {
         return pageSize;
     }
 
-    public String getSortBy() {
-        return sortBy;
-    }
-
-    public String getSortOrder() {
-        return sortOrder;
-    }
-
-    public void setSearch(String search) {
-        this.searchBy = search;
-    }
-
-    public void setPageno(int pageno) {
-            this.pageno = pageno;
-    }
-
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
 
+    public String getSortBy() {
+        return sortBy;
+    }
+
     public void setSortBy(String sortBy) {
         this.sortBy = sortBy;
+    }
+
+    public String getSortOrder() {
+        return sortOrder;
     }
 
     public void setSortOrder(String sortOrder) {

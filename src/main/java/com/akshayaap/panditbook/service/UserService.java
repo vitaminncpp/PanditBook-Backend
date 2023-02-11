@@ -38,9 +38,9 @@ public class UserService {
 
     public Map<String, Object> getUserPage(Search search) {
 
-        HashMap<String, Object> response = new HashMap<>();
+        HashMap<String, Object> response = new HashMap<>(4);
         Sort sort = Sort.by(search.getSortBy(), search.getSortOrder());
-        Pageable page = (Pageable) PageRequest.of(search.getPageno(), search.getPageSize(), sort);
+        Pageable page = (Pageable) PageRequest.of(search.getPageNo(), search.getPageSize(), sort);
         Page<User> userPage = repository.findAll(page);
         response.put("data", userPage.getContent());
         response.put("total", userPage.getTotalElements());
@@ -65,7 +65,7 @@ public class UserService {
     public User update(User user) {
         User user1;
         try {
-            user1 = repository.findOne(new ObjectId( user.getId()), user.getpHash()).get();
+            user1 = repository.findOne(new ObjectId(user.getId()), user.getpHash()).get();
             return repository.save(user);
         } catch (NoSuchElementException ex) {
             return new User();
@@ -75,7 +75,7 @@ public class UserService {
     public String delete(User user) {
         User user1;
         try {
-            user1 = repository.findOne(new ObjectId( user.getId()), user.getpHash()).get();
+            user1 = repository.findOne(new ObjectId(user.getId()), user.getpHash()).get();
             repository.delete(user);
             return "success";
         } catch (NoSuchElementException ex) {
@@ -83,15 +83,15 @@ public class UserService {
         }
     }
 
-    public Map <String,Object> findPandits(Search search) {
-        Map<String,Object> response = new HashMap<String,Object>();
-        Pageable pageable =PageRequest.of(search.getPageno(),search.getPageSize(),Sort.unsorted());
-        Page<User> userPage = repository.findPandits(1,pageable);
-        System.out.println(search) ;
-        response.put("data",userPage.getContent());
-        response.put("total",userPage.getTotalElements());
-        response.put("pages",userPage.getTotalPages());
-        response.put("current",userPage.getNumber());
+    public Map<String, Object> findPandits(Search search) {
+        Map<String, Object> response = new HashMap<>(4);
+        Pageable pageable = PageRequest.of(search.getPageNo(), search.getPageSize(), Sort.unsorted());
+        Page<User> userPage = repository.findPandits(1, pageable);
+        //System.out.println(search);
+        response.put("data", userPage.getContent());
+        response.put("total", userPage.getTotalElements());
+        response.put("pages", userPage.getTotalPages());
+        response.put("current", userPage.getNumber());
         System.out.println(userPage.getContent());
         return response;
     }
