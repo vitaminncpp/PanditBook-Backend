@@ -1,5 +1,6 @@
 package com.akshayaap.panditbook.model;
 
+import javax.persistence.Id;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
