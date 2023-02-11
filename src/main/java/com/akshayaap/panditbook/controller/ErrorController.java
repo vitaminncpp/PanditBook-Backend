@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ErrorController {
 
-    @RequestMapping(value = "/error", method = RequestMethod.GET)
+    @GetMapping("/error")
     @ResponseBody
     public String error() {
         return "<!DOCTYPE html>\n" +
